@@ -39,7 +39,7 @@ def getDatasets(filename):
   CITY = 7
   TOWN = 8
 
-  address_set=set()
+  address_set=[]
   with codecs.open(DIR_PATH + filename, "r", "shift_jis") as fin:
     rows = csv.reader(fin, delimiter=",")
     for row in rows:
@@ -56,7 +56,7 @@ def getDatasets(filename):
             s = s[:house_number_index_en]
           elif house_number_index_em > -1:
             s = s[:house_number_index_em]
-          address_set.add((address, s))
+          address_set.append((address, s))
       
   datasets = []
   for add1, add2 in address_set:
